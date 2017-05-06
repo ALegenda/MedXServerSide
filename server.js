@@ -1,8 +1,7 @@
 var express         = require('express');
-var path            = require('path'); // модуль для парсинга пути
 var app = express();
 
-app.get('/api', function (req, res) {
+app.get('/', function (req, res) {
     res.send('API is running');
 });
 
