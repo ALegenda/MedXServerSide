@@ -24,8 +24,18 @@ app.get('/', function(request, response) {
   response.send('All right');
 });
 
-app.get('/med/:id', function(request, response) {
-    var collection = db.collection('AllDesc');
+app.get('/vidal/:id', function(request, response) {
+    var collection = db.collection('Vidal');
+    var id = ObjectID.createFromHexString(request.params.id);
+    collection.find({_id: id}).toArray(function(err, docs) {
+        console.log(request.params["id"]);
+        console.dir(docs);
+        response.send(docs);
+    });
+});
+
+app.get('/lsg/:id', function(request, response) {
+    var collection = db.collection('Lsg');
     var id = ObjectID.createFromHexString(request.params.id);
     collection.find({_id: id}).toArray(function(err, docs) {
         console.log(request.params["id"]);
