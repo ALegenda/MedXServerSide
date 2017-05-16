@@ -25,7 +25,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/vidal/:id', function(request, response) {
-    var collection = db.collection('Vidal');
+    var collection = db.collection('NewVidal');
     var id = ObjectID.createFromHexString(request.params.id);
     collection.find({_id: id}).toArray(function(err, docs) {
         console.log(request.params["id"]);
@@ -35,23 +35,13 @@ app.get('/vidal/:id', function(request, response) {
 });
 
 app.get('/lsg/:id', function(request, response) {
-    var collection = db.collection('Lsg');
+    var collection = db.collection('NewLsg');
     var id = ObjectID.createFromHexString(request.params.id);
     collection.find({_id: id}).toArray(function(err, docs) {
         console.log(request.params["id"]);
         console.dir(docs);
         response.send(docs);
     });
-});
-
-app.get('/alldesc', function(request, response) {
-    var collection = db.collection('AllDesc');
-    collection.find({}).toArray(function(err, docs) {
-        console.log("Found the following records");
-        console.dir(docs);
-        response.send(docs);
-    });
-
 });
 
 app.get('/allmeds', function(request, response) {
