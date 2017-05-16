@@ -26,7 +26,7 @@ app.get('/', function(request, response) {
 
 app.get('/vidal/:id', function(request, response) {
     var collection = db.collection('NewVidal');
-    var id = ObjectID.createFromHexString(request.params.id);
+    var id = Number(request.params.id);
     collection.find({DrugId: id}).toArray(function(err, docs) {
         console.log(request.params["id"]);
         console.dir(docs);
@@ -36,7 +36,7 @@ app.get('/vidal/:id', function(request, response) {
 
 app.get('/lsg/:id', function(request, response) {
     var collection = db.collection('NewLsg');
-    var id = ObjectID.createFromHexString(request.params.id);
+    var id = Number(request.params.id);
     collection.find({DrugId: id}).toArray(function(err, docs) {
         console.log(request.params["id"]);
         console.dir(docs);
