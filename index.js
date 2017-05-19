@@ -25,7 +25,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/vidal/:id', function(request, response) {
-    var collection = db.collection('NewVidal');
+    var collection = db.collection('Vidal');
     var id = Number(request.params.id);
     collection.find({DrugId: id}).toArray(function(err, docs) {
         console.log(request.params["id"]);
