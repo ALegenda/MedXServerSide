@@ -45,7 +45,7 @@ app.get('/lsg/:id', function(request, response) {
 });
 
 app.get('/allmeds', function(request, response) {
-    var collection = db.collection('NewMeds');
+    var collection = db.collection('LastMeds');
     collection.find({}).toArray(function(err, docs) {
         console.log("Found the following records");
         console.dir(docs);
